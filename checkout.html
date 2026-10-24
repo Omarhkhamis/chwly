@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إتمام الطلب | chwly تشولي</title>
+  <meta name="description" content="إتمام طلبك من تشولي.">
+  <meta name="theme-color" content="#D23666">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph (swap og:url / og:image for absolute URLs on the live domain) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:site_name" content="chwly تشولي">
+  <meta property="og:title" content="إتمام الطلب | chwly تشولي">
+  <meta property="og:description" content="إتمام طلبك من تشولي.">
+  <meta property="og:image" content="assets/img/hero-pour.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Readex+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+  <!-- Icon sprite: filled, rounded -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true">
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M7 8V7a5 5 0 0 1 10 0v1h1.5a1.5 1.5 0 0 1 1.5 1.6l-.7 10A2.5 2.5 0 0 1 16.8 22H7.2a2.5 2.5 0 0 1-2.5-2.4L4 9.6A1.5 1.5 0 0 1 5.5 8H7Zm2 0h6V7a3 3 0 0 0-6 0v1Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4a1.6 1.6 0 0 1 1.6 1.6v4.8h4.8a1.6 1.6 0 0 1 0 3.2h-4.8v4.8a1.6 1.6 0 0 1-3.2 0v-4.8H5.6a1.6 1.6 0 0 1 0-3.2h4.8V5.6A1.6 1.6 0 0 1 12 4Z"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5.6 10.4h12.8a1.6 1.6 0 0 1 0 3.2H5.6a1.6 1.6 0 0 1 0-3.2Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path transform="rotate(45 12 12)" d="M12 4a1.6 1.6 0 0 1 1.6 1.6v4.8h4.8a1.6 1.6 0 0 1 0 3.2h-4.8v4.8a1.6 1.6 0 0 1-3.2 0v-4.8H5.6a1.6 1.6 0 0 1 0-3.2h4.8V5.6A1.6 1.6 0 0 1 12 4Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M10.3 5.3a1.5 1.5 0 0 1 0 2.1l-3.1 3.1H19a1.5 1.5 0 0 1 0 3H7.2l3.1 3.1a1.5 1.5 0 1 1-2.1 2.1l-5.7-5.6a1.5 1.5 0 0 1 0-2.2l5.7-5.6a1.5 1.5 0 0 1 2.1 0Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1h4a1 1 0 1 1 0 2h-1l-.8 12.2a3 3 0 0 1-3 2.8H8.8a3 3 0 0 1-3-2.8L5 7H4a1 1 0 0 1 0-2h4V4a1 1 0 0 1 1-1Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4.5 5.5h15a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3Zm0 5h15a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3Zm0 5h9a1.5 1.5 0 0 1 0 3h-9a1.5 1.5 0 0 1 0-3Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.06l4.24 4.23a1.5 1.5 0 0 1-2.12 2.13l-4.24-4.24A7.5 7.5 0 1 1 10.5 3Zm0 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 10.5c4.4 0 8 2.5 8 5.6v.9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20v-.9c0-3.1 3.6-5.6 8-5.6Z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6.3 8.8a1.4 1.4 0 0 1 2 0l3.7 3.7 3.7-3.7a1.4 1.4 0 1 1 2 2l-4.7 4.7a1.4 1.4 0 0 1-2 0l-4.7-4.7a1.4 1.4 0 0 1 0-2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M19.6 6.3a1.5 1.5 0 0 1 .1 2.1l-8.5 9.5a1.5 1.5 0 0 1-2.2.1l-4.6-4.6a1.5 1.5 0 1 1 2.1-2.1l3.5 3.5 7.4-8.3a1.5 1.5 0 0 1 2.2-.2Z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><path d="M12 2.5a5 5 0 0 1 5 5V10h.5a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-7A2.5 2.5 0 0 1 6.5 10H7V7.5a5 5 0 0 1 5-5Zm0 3a2 2 0 0 0-2 2V10h4V7.5a2 2 0 0 0-2-2Z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3.5 5h10A1.5 1.5 0 0 1 15 6.5V8h2.6a2 2 0 0 1 1.7.9l2 3a2 2 0 0 1 .3 1.1V16a1.5 1.5 0 0 1-1.5 1.5h-.6a2.5 2.5 0 0 1-4.9 0H9.4a2.5 2.5 0 0 1-4.9 0h-1A1.5 1.5 0 0 1 2 16V6.5A1.5 1.5 0 0 1 3.5 5Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8s-4 8-9 8a10 10 0 0 1-3-.4l-3.6 1.8a1 1 0 0 1-1.4-1.1l.6-3A7.6 7.6 0 0 1 3 11c0-4.4 4-8 9-8Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">تخطّ إلى المحتوى</a>
+
+  <header class="co-header">
+    <div class="wrap co-header-in">
+      <a class="brand" href="index.html" aria-label="chwly تشولي، الرئيسية"><img src="assets/logo.svg" width="80" height="60" alt="chwly تشولي"></a>
+      <p class="co-secure"><svg class="i"><use href="#i-lock"/></svg>دفع آمن</p>
+      <a class="link-arrow" href="cart.html">رجوع للسلة <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap co-layout" data-co-main>
+      <form class="co-form" data-checkout novalidate>
+        <h1 class="co-title">إتمام الطلب</h1>
+
+        <fieldset class="co-card">
+          <legend><span class="co-num">1</span>بياناتك</legend>
+          <div class="fld-grid">
+            <div class="fld">
+              <label for="f-name">الاسم الكامل</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" aria-describedby="err-name">
+              <p class="fld-err" id="err-name" data-err="name" role="status"></p>
+            </div>
+            <div class="fld">
+              <label for="f-phone">رقم الجوال</label>
+              <div class="field field--light"><span class="field-prefix" dir="ltr">+966</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" dir="ltr" placeholder="5X XXX XXXX" aria-describedby="err-phone"></div>
+              <p class="fld-err" id="err-phone" data-err="phone" role="status"></p>
+            </div>
+            <div class="fld fld--wide">
+              <label for="f-email">الإيميل <span class="opt-tag">اختياري</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" aria-describedby="err-email">
+              <p class="fld-err" id="err-email" data-err="email" role="status"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="co-card">
+          <legend><span class="co-num">2</span>عنوان التوصيل</legend>
+          <div class="fld-grid">
+            <div class="fld">
+              <label for="f-city">المدينة</label>
+              <select id="f-city" name="city" autocomplete="address-level2" data-city aria-describedby="err-city"></select>
+              <p class="fld-err" id="err-city" data-err="city" role="status"></p>
+            </div>
+            <div class="fld">
+              <label for="f-district">الحي</label>
+              <input id="f-district" name="district" type="text" autocomplete="address-level3" aria-describedby="err-district">
+              <p class="fld-err" id="err-district" data-err="district" role="status"></p>
+            </div>
+            <div class="fld fld--wide">
+              <label for="f-street">الشارع ورقم المبنى <span class="opt-tag">اختياري</span></label>
+              <input id="f-street" name="street" type="text" autocomplete="street-address" aria-describedby="err-street">
+              <p class="fld-err" id="err-street" data-err="street" role="status"></p>
+            </div>
+            <div class="fld">
+              <label for="f-shortcode">العنوان الوطني المختصر <span class="opt-tag">اختياري</span></label>
+              <input id="f-shortcode" name="shortcode" type="text" dir="ltr" placeholder="RRRD2929" maxlength="9" aria-describedby="err-shortcode">
+              <p class="fld-err" id="err-shortcode" data-err="shortcode" role="status"></p>
+            </div>
+            <div class="fld">
+              <label for="f-notes">ملاحظة للمندوب <span class="opt-tag">اختياري</span></label>
+              <input id="f-notes" name="notes" type="text" placeholder="مثلاً: البوابة الجانبية" aria-describedby="err-notes">
+              <p class="fld-err" id="err-notes" data-err="notes" role="status"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="co-card">
+          <legend><span class="co-num">3</span>طريقة الشحن</legend>
+          <div class="opts" data-ship-options></div>
+        </fieldset>
+
+        <fieldset class="co-card">
+          <legend><span class="co-num">4</span>الدفع</legend>
+          <div class="opts opts--pay" data-pay-options></div>
+          <div class="card-panel" data-card-panel>
+            <div class="ph ph--light">حقول البطاقة تظهر هنا من بوابة دفع سلة<small>Placeholder</small></div>
+          </div>
+        </fieldset>
+
+        <div class="fld">
+          <label class="check"><input type="checkbox" id="f-terms" name="terms" aria-describedby="err-terms"><span>أوافق على <a href="policies.html#terms">الشروط والأحكام</a> و<a href="policies.html#returns">سياسة الاسترجاع</a></span></label>
+          <p class="fld-err" id="err-terms" data-err="terms" role="status"></p>
+        </div>
+        <button class="btn btn-primary btn-block co-submit" type="submit"><svg class="i"><use href="#i-lock"/></svg>ادفع <span data-pay-total></span></button>
+        <p class="ph-note">نسخة تجريبية: ما في دفع حقيقي. الطلب ينحفظ بمتصفحك بس.</p>
+      </form>
+      <aside class="summary summary--co" data-summary aria-label="ملخص الطلب"></aside>
+    </div>
+  </main>
+
+  <footer class="co-footer">
+    <div class="wrap footer-base">
+      <p>© 2026 chwly تشولي</p>
+      <p><a href="policies.html#returns">الاسترجاع</a> · <a href="policies.html#privacy">الخصوصية</a> · <a href="policies.html#terms">الشروط</a></p>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <!-- Motion: GSAP + ScrollTrigger + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/checkout.js" defer></script>
+</body>
+</html>

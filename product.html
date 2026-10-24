@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المنتج | chwly تشولي</title>
+  <meta name="description" content="حبّات جيلي من تشولي بطعم الفواكه.">
+  <meta name="theme-color" content="#D23666">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph (swap og:url / og:image for absolute URLs on the live domain) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:site_name" content="chwly تشولي">
+  <meta property="og:title" content="المنتج | chwly تشولي">
+  <meta property="og:description" content="حبّات جيلي من تشولي بطعم الفواكه.">
+  <meta property="og:image" content="assets/img/hero-pour.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Readex+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="product">
+  <!-- Icon sprite: filled, rounded -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true">
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M7 8V7a5 5 0 0 1 10 0v1h1.5a1.5 1.5 0 0 1 1.5 1.6l-.7 10A2.5 2.5 0 0 1 16.8 22H7.2a2.5 2.5 0 0 1-2.5-2.4L4 9.6A1.5 1.5 0 0 1 5.5 8H7Zm2 0h6V7a3 3 0 0 0-6 0v1Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4a1.6 1.6 0 0 1 1.6 1.6v4.8h4.8a1.6 1.6 0 0 1 0 3.2h-4.8v4.8a1.6 1.6 0 0 1-3.2 0v-4.8H5.6a1.6 1.6 0 0 1 0-3.2h4.8V5.6A1.6 1.6 0 0 1 12 4Z"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5.6 10.4h12.8a1.6 1.6 0 0 1 0 3.2H5.6a1.6 1.6 0 0 1 0-3.2Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path transform="rotate(45 12 12)" d="M12 4a1.6 1.6 0 0 1 1.6 1.6v4.8h4.8a1.6 1.6 0 0 1 0 3.2h-4.8v4.8a1.6 1.6 0 0 1-3.2 0v-4.8H5.6a1.6 1.6 0 0 1 0-3.2h4.8V5.6A1.6 1.6 0 0 1 12 4Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M10.3 5.3a1.5 1.5 0 0 1 0 2.1l-3.1 3.1H19a1.5 1.5 0 0 1 0 3H7.2l3.1 3.1a1.5 1.5 0 1 1-2.1 2.1l-5.7-5.6a1.5 1.5 0 0 1 0-2.2l5.7-5.6a1.5 1.5 0 0 1 2.1 0Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M9 3h6a1 1 0 0 1 1 1v1h4a1 1 0 1 1 0 2h-1l-.8 12.2a3 3 0 0 1-3 2.8H8.8a3 3 0 0 1-3-2.8L5 7H4a1 1 0 0 1 0-2h4V4a1 1 0 0 1 1-1Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4.5 5.5h15a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3Zm0 5h15a1.5 1.5 0 0 1 0 3h-15a1.5 1.5 0 0 1 0-3Zm0 5h9a1.5 1.5 0 0 1 0 3h-9a1.5 1.5 0 0 1 0-3Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.06l4.24 4.23a1.5 1.5 0 0 1-2.12 2.13l-4.24-4.24A7.5 7.5 0 1 1 10.5 3Zm0 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M12 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 10.5c4.4 0 8 2.5 8 5.6v.9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 20v-.9c0-3.1 3.6-5.6 8-5.6Z"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6.3 8.8a1.4 1.4 0 0 1 2 0l3.7 3.7 3.7-3.7a1.4 1.4 0 1 1 2 2l-4.7 4.7a1.4 1.4 0 0 1-2 0l-4.7-4.7a1.4 1.4 0 0 1 0-2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M19.6 6.3a1.5 1.5 0 0 1 .1 2.1l-8.5 9.5a1.5 1.5 0 0 1-2.2.1l-4.6-4.6a1.5 1.5 0 1 1 2.1-2.1l3.5 3.5 7.4-8.3a1.5 1.5 0 0 1 2.2-.2Z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><path d="M12 2.5a5 5 0 0 1 5 5V10h.5a2.5 2.5 0 0 1 2.5 2.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-7A2.5 2.5 0 0 1 6.5 10H7V7.5a5 5 0 0 1 5-5Zm0 3a2 2 0 0 0-2 2V10h4V7.5a2 2 0 0 0-2-2Z"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3.5 5h10A1.5 1.5 0 0 1 15 6.5V8h2.6a2 2 0 0 1 1.7.9l2 3a2 2 0 0 1 .3 1.1V16a1.5 1.5 0 0 1-1.5 1.5h-.6a2.5 2.5 0 0 1-4.9 0H9.4a2.5 2.5 0 0 1-4.9 0h-1A1.5 1.5 0 0 1 2 16V6.5A1.5 1.5 0 0 1 3.5 5Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.6 9 8s-4 8-9 8a10 10 0 0 1-3-.4l-3.6 1.8a1 1 0 0 1-1.4-1.1l.6-3A7.6 7.6 0 0 1 3 11c0-4.4 4-8 9-8Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">تخطّ إلى المحتوى</a>
+
+  <div class="promo">
+    <p><strong>الجمعة البيضاء 27 نوفمبر</strong><span class="promo-sep" aria-hidden="true"></span>عرض خاص لقائمة الانتظار<span class="promo-sep" aria-hidden="true"></span><span data-countdown>باقي أيام قليلة</span></p>
+    <a href="index.html#waitlist">سجّل الحين</a>
+  </div>
+  <header class="site-header" data-header>
+    <div class="wrap header-in">
+      <a class="brand" href="index.html" aria-label="chwly تشولي، الرئيسية">
+        <img src="assets/logo.svg" width="80" height="60" alt="chwly تشولي">
+      </a>
+      <nav class="nav" aria-label="القائمة الرئيسية">
+        <ul id="nav-list" class="nav-list" data-nav>
+          <li><a href="shop.html">المتجر</a></li>
+          <li class="has-menu">
+            <button type="button" class="nav-menu-btn" aria-expanded="false" aria-controls="cat-menu" data-cats-toggle>التصنيفات <svg class="i i-sm"><use href="#i-chev"/></svg></button>
+            <ul class="cat-menu" id="cat-menu" data-cat-menu></ul>
+          </li>
+          <li><a href="shop.html#bundles">الباقات</a></li>
+          <li><a href="about.html">قصتنا</a></li>
+          <li><a href="contact.html">تواصل</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn" href="shop.html#search" aria-label="بحث"><svg class="i"><use href="#i-search"/></svg></a>
+        <a class="icon-btn hide-sm" href="account.html" aria-label="حسابي"><svg class="i"><use href="#i-user"/></svg></a>
+        <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="القائمة" data-menu>
+          <svg class="i"><use href="#i-menu"/></svg>
+        </button>
+        <button class="cart-btn" type="button" data-open-cart aria-label="فتح السلة">
+          <svg class="i"><use href="#i-bag"/></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div data-product></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-cream.svg" width="120" height="90" alt="chwly تشولي" loading="lazy">
+        <p>فيتامينات جيلي يومية بطعم الفواكه.</p>
+        <!-- Social links: placeholders -->
+        <ul class="socials" aria-label="حساباتنا">
+          <li><a href="#" rel="noopener">تيك توك</a></li>
+          <li><a href="#" rel="noopener">سناب شات</a></li>
+          <li><a href="#" rel="noopener">إنستغرام</a></li>
+          <li><a href="#" rel="noopener">واتساب</a></li>
+        </ul>
+      </div>
+      <nav aria-labelledby="f-shop">
+        <h2 class="footer-h" id="f-shop">المتجر</h2>
+        <ul class="footer-links" data-footer-cats>
+          <li><a href="shop.html">كل المنتجات</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-help">
+        <h2 class="footer-h" id="f-help">المساعدة</h2>
+        <ul class="footer-links">
+          <li><a href="policies.html#shipping">الشحن والتوصيل</a></li>
+          <li><a href="policies.html#returns">الاسترجاع والاستبدال</a></li>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+          <li><a href="account.html">طلباتي</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-about">
+        <h2 class="footer-h" id="f-about">تشولي</h2>
+        <ul class="footer-links">
+          <li><a href="about.html">قصتنا</a></li>
+          <li><a href="policies.html#privacy">سياسة الخصوصية</a></li>
+          <li><a href="policies.html#terms">الشروط والأحكام</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Payment methods: swap the text for official logos from Salla -->
+    <div class="wrap footer-pay">
+      <p>طرق الدفع</p>
+      <ul class="pay-list"><li>مدى</li><li>Visa</li><li>Mastercard</li><li>Apple Pay</li><li>STC Pay</li><li>تابي</li><li>تمارا</li></ul>
+    </div>
+    <div class="wrap footer-base">
+      <p>© 2026 chwly تشولي · السجل التجاري: [—] · الرقم الضريبي: [—]</p>
+      <p>المكمّلات الغذائية ليست بديلاً عن نظام غذائي متوازن.</p>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <dialog class="cart" id="cart" aria-labelledby="cart-title" data-lenis-prevent>
+    <div class="cart-head">
+      <h2 id="cart-title">سلتك</h2>
+      <button class="icon-btn" type="button" data-close-dialog aria-label="إغلاق السلة"><svg class="i"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="ship-meter">
+      <p data-ship-msg></p>
+      <div class="meter"><span data-ship-bar></span></div>
+    </div>
+    <ul class="cart-items" data-cart-items></ul>
+    <div class="cart-foot">
+      <div class="cart-total"><span>المجموع</span><strong data-cart-total></strong></div>
+      <a class="btn btn-primary btn-block" href="checkout.html" data-needs-items>إتمام الطلب</a>
+      <a class="btn btn-ghost btn-block" href="cart.html">عرض السلة</a>
+    </div>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <!-- Motion: GSAP + ScrollTrigger + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/product.js" defer></script>
+</body>
+</html>
