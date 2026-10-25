@@ -537,11 +537,7 @@ a.card-cat:hover { text-decoration: underline; }
 .pay-list li { display: grid; place-items: center; width: 46px; height: 30px; padding: 5px 6px; border-radius: 6px; background: #fff; }
 .pay-list img { width: 100%; height: 100%; object-fit: contain; }
 .pay-list .pay-tabby { background: #3BFFC1; }
-.legal-ids { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); }
-.reg-ids { display: grid; gap: 2px; margin: 0; font-size: .78rem; }
-.reg-ids div { display: flex; gap: 6px; }
-.reg-ids dt { opacity: .75; }
-.reg-ids dd { margin: 0; color: var(--cream); font-weight: 500; letter-spacing: .02em; }
+.legal-ids { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); margin-top: var(--s-4); }
 .sbc-badge {
   display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 8px; border-radius: 8px;
   background: #fff; color: var(--plum); text-decoration: none; line-height: 1.35;
@@ -550,6 +546,7 @@ a.card-cat:hover { text-decoration: underline; }
 .sbc-badge span { display: grid; }
 .sbc-badge b { font-size: .74rem; font-weight: 600; }
 .sbc-badge small { font-size: .66rem; color: var(--plum-2); }
+.cr-badge b { font-size: .8rem; letter-spacing: .02em; }
 @media (min-width: 600px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--s-7); } }
 
