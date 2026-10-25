@@ -517,19 +517,34 @@ a.card-cat:hover { text-decoration: underline; }
 .footer-links { display: grid; gap: 6px; }
 .footer-links a { text-decoration: none; }
 .footer-links a:hover { color: var(--pink); }
-.socials { display: flex; flex-wrap: wrap; gap: var(--s-2); align-content: start; }
+.footer-h { margin-bottom: var(--s-3); font-size: 1.3rem; color: var(--cream); }
+.socials { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
 .socials a {
-  display: inline-block; padding: 8px 16px; border-radius: var(--r-pill);
-  background: color-mix(in srgb, var(--cream) 10%, transparent); text-decoration: none; font-size: .9rem;
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  background: color-mix(in srgb, var(--cream) 12%, transparent); transition: background-color .2s, transform .2s var(--ease-out);
 }
-.socials a:hover { background: var(--pink); color: var(--plum); }
+.socials a:hover { background: var(--berry-ink); transform: rotate(-8deg); }
+.socials img { width: 20px; height: 20px; }
 .footer-base {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-2);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-5);
   margin-top: var(--s-7); padding-top: var(--s-5);
   border-top: 1px solid color-mix(in srgb, var(--cream) 15%, transparent);
   font-size: .85rem; color: color-mix(in srgb, var(--cream) 65%, var(--plum));
 }
-@media (min-width: 768px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.footer-legal { display: grid; gap: 2px; }
+.footer-trust { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); }
+.pay-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.pay-list li { display: grid; place-items: center; width: 58px; height: 38px; padding: 6px 8px; border-radius: 8px; background: #fff; }
+.pay-list img { width: 100%; height: 100%; object-fit: contain; }
+.pay-list .pay-tabby { background: #3BFFC1; }
+.sbc-badge {
+  display: grid; gap: 0; padding: 6px 14px; border-radius: 8px; text-decoration: none; line-height: 1.4;
+  border: 2px dashed color-mix(in srgb, var(--cream) 35%, transparent); color: var(--cream);
+}
+.sbc-badge b { font-size: .8rem; font-weight: 600; }
+.sbc-badge small { font-size: .7rem; opacity: .7; }
+@media (min-width: 600px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: var(--s-7); } }
 
 /* ---------- Dialog base ---------- */
 dialog { color: var(--plum); }
