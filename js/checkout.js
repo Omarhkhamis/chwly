@@ -70,7 +70,7 @@
         <div class="meter"><span style="inline-size:${Math.min(100, ((t.subtotal - t.discount) / D.freeShippingFrom) * 100)}%"></span></div>`;
       summary.innerHTML = summaryHTML(t);
       // Upsell: products not already in the cart
-      const inCart = new Set(S.cart.flatMap(it => it.kind === 'bundle' ? S.bundleById(it.id).items : [it.id]));
+      const inCart = new Set(S.cart.flatMap(it => it.kind === 'custom' ? Object.keys(it.items) : it.kind === 'bundle' ? S.bundleById(it.id).items : [it.id]));
       const ups = D.products.filter(p => !inCart.has(p.id)).slice(0, 4);
       $('[data-upsell-wrap]').hidden = ups.length === 0;
       $('[data-upsell]').innerHTML = ups.map(p => cardHTML(p)).join('');

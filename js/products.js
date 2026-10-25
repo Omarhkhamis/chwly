@@ -140,6 +140,16 @@ window.CHWLY = {
     }
   ],
 
+  // Build-your-own bundle: discount by number of packs picked (placeholder rates)
+  builder: {
+    tiers: [
+      { min: 2, percent: 10 },
+      { min: 3, percent: 15 },
+      { min: 4, percent: 20 }
+    ],
+    maxEach: 5
+  },
+
   bundles: [
     { id: 'b-girls', name: 'روتين البنات', items: ['glow-on', 'daily-multi'], price: 149 },
     { id: 'b-home', name: 'باقة البيت', items: ['sleep-easy', 'kids-shield', 'daily-multi'], price: 219 },

@@ -70,6 +70,7 @@
 
     render();
     $('[data-bundles]').innerHTML = D.bundles.map(bundleHTML).join('');
+    S.mountBuilder($('[data-builder]'));
     $('[data-other-cats]').innerHTML = otherCats(null);
     S.animate();
     if (S.motion) gsap.from('[data-grid] .card', { y: 28, opacity: 0, duration: .5, stagger: .07, ease: 'power2.out', delay: .1 });

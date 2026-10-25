@@ -77,6 +77,7 @@
 
   /* ---------- Bundles & ingredients ---------- */
   $('[data-bundles]').innerHTML = D.bundles.map(bundleHTML).join('');
+  S.mountBuilder($('[data-builder]'));
   $('[data-ingredients]').innerHTML = D.products.map(p => `
     <li style="--c:${p.color}"><span class="ing-dot" aria-hidden="true"></span><b><a href="${productUrl(p.id)}">${p.name}</a></b><span>${p.ingredientsAr}</span></li>`).join('');
 
@@ -132,6 +133,7 @@
   });
   // Mobile: same swap, scrubbed as the visual scrolls through (no pin)
   mm.add('(max-width: 899px)', () => {
+    gsap.set('.why-list li', { opacity: 1 }); // text stays fully visible on mobile
     gsap.timeline({ scrollTrigger: { trigger: '.why-visual', start: 'top 85%', end: 'center 45%', scrub: .5 } })
       .fromTo('.capsule', { scale: 1, opacity: 1, rotation: 35 }, { scale: .15, opacity: 0, rotation: 200, duration: 1 })
       .fromTo('.why-gum', { scale: .2, opacity: 0, rotation: -120 }, { scale: 1, opacity: 1, rotation: 0, duration: 1 }, '<.35');

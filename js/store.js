@@ -67,10 +67,27 @@
 
   /* ---------- Cart ---------- */
   const KEY = 'chwly-cart';
-  let cart = read(KEY, []).filter(it => it.kind === 'bundle' ? bundleById(it.id) : byId(it.id));
+  const validItem = it => it.kind === 'custom' ? Object.keys(it.items || {}).every(byId)
+    : it.kind === 'bundle' ? bundleById(it.id) : byId(it.id);
+  let cart = read(KEY, []).filter(validItem);
   const listeners = [];
 
+  /* ---------- Build-your-own bundle pricing ---------- */
+  const builderTier = count => [...D.builder.tiers].reverse().find(t => count >= t.min) || null;
+  function customPrice(items) {
+    const ids = Object.keys(items);
+    const count = ids.reduce((n, id) => n + items[id], 0);
+    const full = ids.reduce((sum, id) => sum + byId(id).prices[1] * items[id], 0);
+    const tier = builderTier(count);
+    return { count, full, tier, price: tier ? Math.round(full * (1 - tier.percent / 100)) : full };
+  }
+
   function lineInfo(it) {
+    if (it.kind === 'custom') {
+      const ids = Object.keys(it.items);
+      const c = customPrice(it.items);
+      return { title: 'باقتك', sub: ids.map(id => `${byId(id).name}${it.items[id] > 1 ? ` ×${it.items[id]}` : ''}`).join(' + '), unit: c.price, p: byId(ids[0]), bundle: { items: ids }, mark: c.count, href: 'shop.html#builder' };
+    }
     if (it.kind === 'bundle') {
       const b = bundleById(it.id);
       return { title: b.name, sub: b.items.map(id => byId(id).name).join(' + '), unit: b.price, p: byId(b.items[0]), bundle: b, href: 'shop.html#bundles' };
@@ -108,7 +125,9 @@
   const onChange = fn => listeners.push(fn);
 
   function add(item, qty = 1) {
-    const key = item.kind === 'bundle' ? item.id : `${item.id}:${item.packs}`;
+    const key = item.kind === 'custom'
+      ? `custom:${Object.keys(item.items).sort().map(id => `${id}x${item.items[id]}`).join('|')}`
+      : item.kind === 'bundle' ? item.id : `${item.id}:${item.packs}`;
     const found = cart.find(x => x.key === key);
     if (found) found.qty += qty; else cart.push({ ...item, key, qty });
     emit();
@@ -130,7 +149,7 @@
     const info = lineInfo(it);
     return `
       <li class="cart-item${big ? ' cart-item--big' : ''}">
-        <a class="cart-thumb" href="${info.href}" style="${vars(info.p)}" aria-hidden="true" tabindex="-1">${big ? packArt(info.p) : `<span>${info.bundle ? info.bundle.items.length : info.p.name[0]}</span>`}</a>
+        <a class="cart-thumb" href="${info.href}" style="${vars(info.p)}" aria-hidden="true" tabindex="-1">${big ? packArt(info.p) : `<span>${info.mark ?? (info.bundle ? info.bundle.items.length : info.p.name[0])}</span>`}</a>
         <div class="cart-info"><h3><a href="${info.href}">${info.title}</a></h3><small>${info.sub}</small></div>
         <p class="price">${money(info.unit * it.qty)}</p>
         <div class="cart-ctrl">
@@ -306,6 +325,68 @@
     }
   }
 
+  /* ---------- Bundle builder component ([data-builder]) ---------- */
+  function mountBuilder(el) {
+    if (!el) return;
+    const picked = {};
+    const tiers = D.builder.tiers;
+    el.innerHTML = `
+      <div class="builder-head">
+        <p class="eyebrow">باقتك على كيفك</p>
+        <h3 class="builder-title">شكّل باقتك</h3>
+        <p>اختر حبّتين أو أكثر، من نفس النوع أو من أنواع مختلفة. كل ما زادت الحبّات، زاد الخصم.</p>
+        <ol class="builder-tiers">${tiers.map(t => `<li data-tier="${t.min}"><b>${t.percent}%</b><span>${t.min}${t === tiers[tiers.length - 1] ? '+' : ''} عبوات</span></li>`).join('')}</ol>
+      </div>
+      <ul class="builder-list">${D.products.map(p => `
+        <li class="builder-item" style="${vars(p)}">
+          <span class="builder-dot" aria-hidden="true">${p.name[0]}</span>
+          <span class="builder-name"><b>${p.name}</b><small>${p.catLabel} · ${money(p.prices[1])}</small></span>
+          <div class="stepper">
+            <button type="button" data-b-step="${p.id}" data-d="1" aria-label="زيادة ${p.name}"><svg class="i"><use href="#i-plus"/></svg></button>
+            <output data-b-qty="${p.id}" aria-label="عدد ${p.name}">0</output>
+            <button type="button" data-b-step="${p.id}" data-d="-1" aria-label="إنقاص ${p.name}"><svg class="i"><use href="#i-minus"/></svg></button>
+          </div>
+        </li>`).join('')}
+      </ul>
+      <div class="builder-foot">
+        <div class="builder-dots" data-b-dots aria-hidden="true"></div>
+        <p class="builder-msg" data-b-msg role="status"></p>
+        <p class="bundle-price" data-b-price></p>
+        <button class="btn btn-primary" type="button" data-b-add disabled>أضف باقتك للسلة</button>
+      </div>`;
+
+    function update() {
+      const c = customPrice(picked);
+      D.products.forEach(p => { $(`[data-b-qty="${p.id}"]`, el).textContent = picked[p.id] || 0; });
+      $$('[data-tier]', el).forEach(li => li.classList.toggle('is-on', c.tier && Number(li.dataset.tier) === c.tier.min));
+      $('[data-b-dots]', el).innerHTML = Object.keys(picked).flatMap(id => Array(picked[id]).fill(`<span style="--c:${byId(id).color}"></span>`)).join('');
+      const next = tiers.find(t => c.count < t.min);
+      $('[data-b-msg]', el).textContent = c.count === 0 ? 'ما اخترت شي لسا.'
+        : next ? `${c.count} ${c.count === 1 ? 'عبوة' : 'عبوات'}${c.tier ? ` · خصمك ${c.tier.percent}%` : ''} · أضف ${next.min - c.count} وتاخذ ${next.percent}%`
+        : `${c.count} عبوات · أعلى خصم ${c.tier.percent}%`;
+      $('[data-b-price]', el).innerHTML = c.count ? `${c.tier ? `<s>${money(c.full)}</s>` : ''}<strong>${money(c.price)}</strong>` : '';
+      $('[data-b-add]', el).disabled = !c.tier;
+    }
+    el.addEventListener('click', e => {
+      const b = e.target.closest('[data-b-step]');
+      if (b) {
+        const id = b.dataset.bStep;
+        const q = Math.max(0, Math.min(D.builder.maxEach, (picked[id] || 0) + Number(b.dataset.d)));
+        if (q) picked[id] = q; else delete picked[id];
+        update();
+        return;
+      }
+      const addBtn = e.target.closest('[data-b-add]');
+      if (addBtn && !addBtn.disabled) {
+        add({ kind: 'custom', items: { ...picked } });
+        Object.keys(picked).forEach(k => delete picked[k]);
+        update();
+        openCart();
+      }
+    });
+    update();
+  }
+
   // Called by page scripts after they render their content
   function animate() {
     if (!motion) return;
@@ -331,7 +412,7 @@
   window.Store = {
     D, $, $$, byId, catById, bundleById, catProducts, catColors, money, vars, params, esc,
     reduceMotion, motion, productUrl, categoryUrl, bundleList,
-    packArt, cardHTML, bundleHTML, lineHTML, lineInfo,
+    packArt, cardHTML, bundleHTML, lineHTML, lineInfo, mountBuilder,
     get cart() { return cart; }, add, setQty, remove, clear, totals, onChange,
     getCoupon, applyCoupon, removeCoupon, read, write,
     openCart, openDialog, toast, flyToCart, animate,
