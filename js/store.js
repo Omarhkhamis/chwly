@@ -154,7 +154,7 @@
     const info = lineInfo(it);
     return `
       <li class="cart-item${big ? ' cart-item--big' : ''}">
-        <a class="cart-thumb" href="${info.href}" style="${vars(info.p)}" aria-hidden="true" tabindex="-1">${big ? packArt(info.p) : `<span>${info.mark ?? (info.bundle ? info.bundle.items.length : info.p.name[0])}</span>`}</a>
+        <a class="cart-thumb" href="${info.href}" style="${vars(info.p)}" aria-hidden="true" tabindex="-1">${big ? packArt(info.p) : `<span>${info.mark ?? (info.bundle ? info.bundle.items.length : '')}</span>`}</a>
         <div class="cart-info"><h3><a href="${info.href}">${info.title}</a></h3><small>${info.sub}</small></div>
         <p class="price">${money(info.unit * it.qty)}</p>
         <div class="cart-ctrl">
@@ -344,7 +344,7 @@
       </div>
       <ul class="builder-list">${D.products.map(p => `
         <li class="builder-item" style="${vars(p)}">
-          <span class="builder-dot" aria-hidden="true">${p.name[0]}</span>
+          <span class="builder-dot" aria-hidden="true"></span>
           <span class="builder-name"><b>${p.name}</b><small>${p.catLabel} · ${money(p.prices[1])}</small></span>
           <div class="stepper">
             <button type="button" data-b-step="${p.id}" data-d="1" aria-label="زيادة ${p.name}"><svg class="i"><use href="#i-plus"/></svg></button>
