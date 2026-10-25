@@ -130,11 +130,11 @@
       .fromTo('.why-gum', { scale: .2, opacity: 0, rotation: -120 }, { scale: 1, opacity: 1, rotation: 0, duration: 1 }, '<.35')
       .fromTo('.why-list li', { opacity: .2 }, { opacity: 1, duration: .3, stagger: .45 }, 0);
   });
+  // Mobile: same swap, scrubbed as the visual scrolls through (no pin)
   mm.add('(max-width: 899px)', () => {
-    gsap.from('.why-gum', {
-      scale: .4, rotation: -90, opacity: 0, duration: .7, ease: 'back.out(1.6)',
-      scrollTrigger: { trigger: '.why-visual', start: 'top 80%' }
-    });
+    gsap.timeline({ scrollTrigger: { trigger: '.why-visual', start: 'top 85%', end: 'center 45%', scrub: .5 } })
+      .fromTo('.capsule', { scale: 1, opacity: 1, rotation: 35 }, { scale: .15, opacity: 0, rotation: 200, duration: 1 })
+      .fromTo('.why-gum', { scale: .2, opacity: 0, rotation: -120 }, { scale: 1, opacity: 1, rotation: 0, duration: 1 }, '<.35');
   });
 
   gsap.from('.wl-gum', {

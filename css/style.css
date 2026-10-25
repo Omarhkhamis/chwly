@@ -367,7 +367,7 @@ a.card-cat:hover { text-decoration: underline; }
   position: absolute; inset: 7% 33%; border-radius: var(--r-pill);
   background: linear-gradient(to bottom, var(--cream) 50%, var(--berry) 50%);
   box-shadow: inset -10px 0 0 rgba(45, 21, 48, .08);
-  transform: rotate(35deg); opacity: .35;
+  transform: rotate(35deg); opacity: 0; /* shown only by the scroll animation */
 }
 .why-gum { position: absolute; inset: 14%; width: 72%; filter: drop-shadow(0 24px 22px rgba(120, 30, 20, .3)); }
 @media (min-width: 900px) {
@@ -512,7 +512,7 @@ a.card-cat:hover { text-decoration: underline; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--plum); color: var(--cream); padding-block: var(--s-8) var(--s-5); }
 .footer-grid { display: grid; gap: var(--s-6); }
-.footer-brand img { width: 110px; margin-bottom: var(--s-3); }
+.footer-brand > img { width: 110px; margin-bottom: var(--s-3); }
 .footer-brand p { color: color-mix(in srgb, var(--cream) 75%, var(--plum)); }
 .footer-links { display: grid; gap: 6px; }
 .footer-links a { text-decoration: none; }
@@ -520,11 +520,11 @@ a.card-cat:hover { text-decoration: underline; }
 .footer-h { margin-bottom: var(--s-3); font-size: 1.3rem; color: var(--cream); }
 .socials { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
 .socials a {
-  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border-radius: 50%; line-height: 0;
   background: color-mix(in srgb, var(--cream) 12%, transparent); transition: background-color .2s, transform .2s var(--ease-out);
 }
 .socials a:hover { background: var(--berry-ink); transform: rotate(-8deg); }
-.socials img { width: 20px; height: 20px; }
+.socials img { flex: none; width: 20px; height: 20px; }
 .footer-base {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-5);
   margin-top: var(--s-7); padding-top: var(--s-5);
@@ -533,12 +533,12 @@ a.card-cat:hover { text-decoration: underline; }
 }
 .footer-legal { display: grid; gap: 2px; }
 .footer-trust { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); }
-.pay-list { display: flex; flex-wrap: wrap; gap: 6px; }
-.pay-list li { display: grid; place-items: center; width: 58px; height: 38px; padding: 6px 8px; border-radius: 8px; background: #fff; }
+.pay-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.pay-list li { display: grid; place-items: center; width: 46px; height: 30px; padding: 5px 6px; border-radius: 6px; background: #fff; }
 .pay-list img { width: 100%; height: 100%; object-fit: contain; }
 .pay-list .pay-tabby { background: #3BFFC1; }
 .sbc-badge {
-  display: grid; gap: 0; padding: 6px 14px; border-radius: 8px; text-decoration: none; line-height: 1.4;
+  display: grid; gap: 0; padding: 3px 12px; border-radius: 8px; text-decoration: none; line-height: 1.4;
   border: 2px dashed color-mix(in srgb, var(--cream) 35%, transparent); color: var(--cream);
 }
 .sbc-badge b { font-size: .8rem; font-weight: 600; }
