@@ -309,10 +309,17 @@ a.card-cat:hover { text-decoration: underline; }
 .btn-add:active { transform: translateY(3px); box-shadow: 0 1px 0 #000; }
 .btn-add .i { width: 1em; height: 1em; }
 
+.card-facts { display: none; }
 @media (min-width: 1000px) {
-  .card--feature { grid-column: span 2; grid-template-columns: 1fr 1fr; align-items: center; gap: var(--s-6); padding: var(--s-4); }
-  .card--feature .card-name { font-size: 3rem; }
-  .card--feature .card-line { font-size: 1.15rem; }
+  /* Home grid: featured card on its own full row, then 4 cards */
+  .product-grid:has(> .card--feature) { grid-template-columns: repeat(4, 1fr); gap: var(--s-4); }
+  .product-grid:has(> .card--feature) .card:not(.card--feature) .card-name { font-size: 1.55rem; }
+  .card--feature { grid-column: 1 / -1; grid-template-columns: minmax(260px, 340px) 1fr; align-items: center; gap: var(--s-7); padding: var(--s-4); }
+  .card--feature .card-body { gap: var(--s-2); padding-inline-end: var(--s-6); }
+  .card--feature .card-name { font-size: 3.2rem; }
+  .card--feature .card-line { font-size: 1.2rem; }
+  .card--feature .card-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); max-width: 640px; margin-top: var(--s-2); }
+  .card--feature .card-foot { justify-content: flex-start; gap: var(--s-6); }
 }
 
 /* ---------- Pack art (CSS packaging) ---------- */

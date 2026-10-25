@@ -37,6 +37,11 @@
         <a class="card-cat" href="${categoryUrl(p.cat)}">${p.catLabel}</a>
         <h3 class="card-name"><a href="${productUrl(p.id)}">${p.name}</a></h3>
         <p class="card-line">${p.line}</p>
+        ${feature ? `<dl class="facts card-facts">
+          <div><dt>وش فيها</dt><dd>${p.ingredientsAr}</dd></div>
+          <div><dt>النكهة</dt><dd>${p.flavorAr}</dd></div>
+          <div><dt>متى</dt><dd>${p.when}</dd></div>
+        </dl>` : ''}
         <div class="card-foot">
           <p class="price">${money(p.prices[1])}</p>
           <button class="btn-add" type="button" data-add="${p.id}" aria-label="أضف ${p.name} للسلة">
