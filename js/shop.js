@@ -36,7 +36,7 @@
         (!q || norm([p.name, p.catLabel, p.line, p.ingredients, p.ingredientsAr, p.flavorAr].join(' ')).includes(q)));
       if (sort.value === 'az') list = [...list].sort((a, b) => a.name.localeCompare(b.name));
       if (sort.value === 'price') list = [...list].sort((a, b) => a.prices[1] - b.prices[1]);
-      grid.innerHTML = list.map(p => cardHTML(p)).join('') || `
+      grid.innerHTML = list.map((p, i) => cardHTML(p, i === 0)).join('') || `
         <li class="empty-state">
           <p class="empty-title">ما لقينا شي بهالاسم.</p>
           <p>جرّب كلمة ثانية، مثل «نوم» أو «بيوتين».</p>

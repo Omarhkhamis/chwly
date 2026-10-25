@@ -12,7 +12,7 @@
   const renderProducts = (filter = 'all') => {
     grid.innerHTML = D.products
       .filter(p => filter === 'all' || p.cat === filter)
-      .map(p => cardHTML(p, p.featured && filter === 'all')).join('');
+      .map((p, i) => cardHTML(p, i === 0)).join(''); // first result is always the wide card
   };
   renderProducts();
   $$('[data-filter]').forEach(btn => btn.addEventListener('click', () => {
