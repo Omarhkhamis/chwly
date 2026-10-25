@@ -139,14 +139,15 @@ strong, b { font-weight: 600; }
 @media (min-width: 768px) { .bite-top { --bite-max: 96px; } }
 
 /* ---------- Promo bar ---------- */
-.promo {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 16px;
-  padding: 10px var(--gutter); background: var(--plum); color: var(--cream);
-  font-size: .875rem; line-height: 1.6; text-align: center;
-}
+.promo { direction: ltr; overflow: hidden; padding-block: 10px; background: var(--plum); color: var(--cream); font-size: .875rem; line-height: 1.6; }
 .promo strong { color: var(--pink); }
-.promo-sep { display: inline-block; width: 5px; height: 5px; margin: 0 10px; border-radius: 50%; background: currentColor; opacity: .5; vertical-align: middle; }
-.promo a { font-weight: 600; color: var(--cream); text-underline-offset: 4px; }
+/* Two identical runs; shifting by half the track loops seamlessly (left → right) */
+.promo-track { display: flex; width: max-content; direction: ltr; animation: promo-slide 120s linear infinite; }
+.promo:hover .promo-track { animation-play-state: paused; }
+.promo-run { display: flex; flex: none; align-items: center; }
+.promo-run p { direction: rtl; white-space: nowrap; padding-inline: 32px; }
+.promo-dot { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--pink); }
+@keyframes promo-slide { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* ---------- Header ---------- */
 .site-header {

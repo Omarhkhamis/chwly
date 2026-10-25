@@ -295,11 +295,10 @@
   }
 
   /* ---------- Black Friday countdown ---------- */
-  const cd = $('[data-countdown]');
-  if (cd) {
-    const days = Math.ceil((new Date(D.promoDate) - Date.now()) / 864e5);
+  const days = Math.ceil((new Date(D.promoDate) - Date.now()) / 864e5);
+  $$('[data-countdown]').forEach(cd => {
     cd.textContent = days > 1 ? `باقي ${days} يوم` : days === 1 ? 'باقي يوم واحد' : 'العرض شغّال الحين';
-  }
+  });
 
   renderDrawer();
 
