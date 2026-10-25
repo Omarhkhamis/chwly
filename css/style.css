@@ -1056,6 +1056,20 @@ a.btn[data-disabled] { opacity: .45; cursor: not-allowed; }
   .builder-foot .btn { flex: 0 0 auto; }
 }
 
+/* ---------- Glossy gummy dots ---------- */
+.bundle-dots span, .builder-dots span, .order-dots span, .ing-dot, .cat-dot,
+.builder-dot, .summary-thumb, .cart-item:not(.cart-item--big) .cart-thumb {
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .95) 0 7%, rgba(255, 255, 255, .45) 13%, transparent 30%),
+    radial-gradient(circle at 68% 80%, rgba(255, 255, 255, .3), transparent 38%),
+    radial-gradient(circle at 50% 45%, var(--c) 50%, color-mix(in srgb, var(--c) 72%, #000) 100%);
+  box-shadow:
+    inset -3px -5px 8px rgba(0, 0, 0, .2),
+    inset 2px 3px 6px rgba(255, 255, 255, .35),
+    0 3px 6px rgba(45, 21, 48, .2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+}
+
 /* ---------- Mobile-only compaction ---------- */
 @media (max-width: 599px) {
   /* Product cards: side-by-side so the add button fits on screen */
